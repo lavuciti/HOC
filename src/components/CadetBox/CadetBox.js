@@ -1,22 +1,15 @@
 import React, { Component } from "react";
 import "./CadetBox.css";
+import withCounter from "../hoc/withCounter";
 
 class CadetBox extends Component{
-    state = {
-        counter : 0
-    }
-
-    incCounter = () => {
-        this.setState({counter:this.state.counter + 1})
-    }
-
     render(){
         return(
-            <div onClick={this.incCounter} className="CadetBox">
-                {this.state.counter}
+            <div onClick={this.props.incCounter} className="CadetBox">
+                {this.props.counter}
             </div>
         )
     }
 }
 
-export default CadetBox;
+export default withCounter(CadetBox);
